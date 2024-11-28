@@ -435,7 +435,7 @@
       <GroupNumber>3</GroupNumber>
       <FileNumber>6</FileNumber>
       <FileType>1</FileType>
-      <tvExp>0</tvExp>
+      <tvExp>1</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\Drivers\SYSTEM\sys\sys.c</PathWithFileName>
@@ -526,12 +526,12 @@
     <File>
       <GroupNumber>4</GroupNumber>
       <FileNumber>13</FileNumber>
-      <FileType>5</FileType>
+      <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\Drivers\BSP\AHT10\AHT10.h</PathWithFileName>
-      <FilenameWithoutPath>AHT10.h</FilenameWithoutPath>
+      <PathWithFileName>..\..\Drivers\BSP\HC595\HC595.c</PathWithFileName>
+      <FilenameWithoutPath>HC595.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -542,8 +542,20 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\Drivers\BSP\HC595\HC595.c</PathWithFileName>
-      <FilenameWithoutPath>HC595.c</FilenameWithoutPath>
+      <PathWithFileName>..\..\Drivers\BSP\TIMER\gtim.c</PathWithFileName>
+      <FilenameWithoutPath>gtim.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>4</GroupNumber>
+      <FileNumber>15</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\..\Drivers\BSP\Motor\Motor.c</PathWithFileName>
+      <FilenameWithoutPath>Motor.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -557,7 +569,7 @@
     <RteFlg>0</RteFlg>
     <File>
       <GroupNumber>5</GroupNumber>
-      <FileNumber>15</FileNumber>
+      <FileNumber>16</FileNumber>
       <FileType>5</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>

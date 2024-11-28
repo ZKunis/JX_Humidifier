@@ -16,7 +16,8 @@
 ..\..\output\main.o: ..\..\Drivers\./BSP/LED/led.h
 ..\..\output\main.o: ..\..\Drivers\./BSP/LCD/lcd.h
 ..\..\output\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-..\..\output\main.o: ..\..\Drivers\./BSP/ADC/adc.h
 ..\..\output\main.o: ..\..\Drivers\./BSP/KEY/key.h
 ..\..\output\main.o: ..\..\Drivers\./BSP/AHT10/AHT10.h
 ..\..\output\main.o: ..\..\Drivers\./BSP/HC595/HC595.h
+..\..\output\main.o: ..\..\Drivers\./BSP/Motor/Motor.h
+..\..\output\main.o: ..\..\Drivers\./BSP/ADC/adc.h

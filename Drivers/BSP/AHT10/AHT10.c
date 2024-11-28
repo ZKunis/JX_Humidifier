@@ -291,7 +291,7 @@ void JH_Read_CTdata(uint32_t *ct) //读取AHT10的温度和湿度数据
 	volatile uint8_t  Byte_4th=0;
 	volatile uint8_t  Byte_5th=0;
 	volatile uint8_t  Byte_6th=0;
-	 uint32_t RetuData = 0;
+	uint32_t RetuData = 0;
 	
 	uint16_t cnt = 0;
 
@@ -383,4 +383,22 @@ uint8_t JH_Init(void)   //初始化AHT10
     }
    return 1;
 }
+
+uint32_t CT_data[2];
+volatile int  c1,t1;
+uint16_t ATH_humidity(void)
+{
+		while(JH_Read_Cal_Enable()==0)//µÈµ½Ð£×¼Êä³öÊ¹ÄÜÎ»Îª1£¬²Å¶ÁÈ¡¡£
+		{
+		JH_Init();//Èç¹ûÎª0ÔÙÊ¹ÄÜÒ»´Î
+		delay_ms(30);
+		}
+		//DisableIrq(); //ÓÉÓÚÊÇÄ£ÄâI2C,Îª¶ÁÈ¡Êý¾Ý¸ü×¼È· £¬¶ÁÈ¡Ö®Ç°½ûÖ¹ÖÐ¶Ï
+		JH_Read_CTdata(CT_data);  //¶ÁÈ¡ÎÂ¶ÈºÍÊª¶È £¬ ¿É¼ä¸ô1.5S¶ÁÒ»´Î
+		c1 = CT_data[0]*1000/1024/1024;  //¼ÆËãµÃµ½Êª¶ÈÖµ£¨·Å´óÁË10±¶,Èç¹ûc1=523£¬±íÊ¾ÏÖÔÚÊª¶ÈÎª52.3%£©
+		t1 = CT_data[1] *200*10/1024/1024-500;//¼ÆËãµÃµ½ÎÂ¶ÈÖµ£¨·Å´óÁË10±¶£¬Èç¹ût1=245£¬±íÊ¾ÏÖÔÚÎÂ¶ÈÎª24.5¡æ£©
+		//EnableIrq(); //»Ö¸´ÖÐ¶Ï
+		
+		return c1;
+}	
 

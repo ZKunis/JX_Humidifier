@@ -457,14 +457,19 @@
               <FilePath>..\..\Drivers\BSP\AHT10\AHT10.c</FilePath>
             </File>
             <File>
-              <FileName>AHT10.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\..\Drivers\BSP\AHT10\AHT10.h</FilePath>
-            </File>
-            <File>
               <FileName>HC595.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Drivers\BSP\HC595\HC595.c</FilePath>
+            </File>
+            <File>
+              <FileName>gtim.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Drivers\BSP\TIMER\gtim.c</FilePath>
+            </File>
+            <File>
+              <FileName>Motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\Drivers\BSP\Motor\Motor.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -6,12 +6,12 @@
 /*AHT10 SDA */
 #define AHT10_SDA_GPIO_PORT                  GPIOA
 #define AHT10_SDA_GPIO_PIN                   SYS_GPIO_PIN10
-#define AHT10_SDA_GPIO_CLK_ENABLE()           do{ RCC->APB2ENR |= 1 << 2; }while(0)   /* PC口时钟使能 */
+#define AHT10_SDA_GPIO_CLK_ENABLE()           do{ RCC->APB2ENR |= 1 << 2; }while(0)   /* PA口时钟使能 */
 
 /*AHT10 SCL */
 #define AHT10_SCL_GPIO_PORT                  GPIOA
-#define AHT10_SCL_GPIO_PIN                   SYS_GPIO_PIN0
-#define AHT10_SCL_GPIO_CLK_ENABLE()           do{ RCC->APB2ENR |= 1 << 2; }while(0)   /* PC口时钟使能 */
+#define AHT10_SCL_GPIO_PIN                   SYS_GPIO_PIN1
+#define AHT10_SCL_GPIO_CLK_ENABLE()           do{ RCC->APB2ENR |= 1 << 2; }while(0)   /* PA口时钟使能 */
 
 
 /* IIC端口定义 */
@@ -27,3 +27,4 @@ void SCL_Pin_Output_Low(void); //SCL输出低电平
 void SDA_Pin_Output_Low(void);  //将P15配置为输出  并设置为低电平
 void SDA_Pin_IN_FLOATING(void);  //SDA配置为悬浮输入  SYS_GPIO_MODE_IN	
 void SDA_Pin_Output_High(void);
+uint16_t ATH_humidity(void);
