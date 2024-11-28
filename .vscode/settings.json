@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "lcd.h": "c",
+        "adc.h": "c",
+        "aht10.h": "c",
+        "stdint.h": "c",
+        "usart.h": "c"
+    }
+}

@@ -1,0 +1,9 @@
+..\..\output\system_stm32f10x.o: ..\..\User\system_stm32f10x.c
+..\..\output\system_stm32f10x.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0\Device\Include\stm32f10x.h
+..\..\output\system_stm32f10x.o: ..\..\Drivers\CMSIS\Include\core_cm3.h
+..\..\output\system_stm32f10x.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\..\output\system_stm32f10x.o: ..\..\Drivers\CMSIS\Include\cmsis_version.h
+..\..\output\system_stm32f10x.o: ..\..\Drivers\CMSIS\Include\cmsis_compiler.h
+..\..\output\system_stm32f10x.o: ..\..\Drivers\CMSIS\Include\cmsis_armcc.h
+..\..\output\system_stm32f10x.o: C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0\Device\Include\system_stm32f10x.h
+..\..\output\system_stm32f10x.o: ..\..\User\stm32f10x_conf.h
