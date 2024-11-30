@@ -11,3 +11,7 @@
 ..\..\output\motor.o: ..\..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h
 ..\..\output\motor.o: ..\..\Drivers\./BSP/TIMER/gtim.h
 ..\..\output\motor.o: ..\..\Drivers\./BSP/ADC/adc.h
+..\..\output\motor.o: ..\..\Drivers\./BSP/AHT10/AHT10.h
+..\..\output\motor.o: ..\..\Drivers\./SYSTEM/usart/usart.h
+..\..\output\motor.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\..\output\motor.o: ..\..\Drivers\./SYSTEM/delay/delay.h

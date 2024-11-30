@@ -38,11 +38,15 @@ void adc_init(void)
 {
     ADC_ADCX_CHY_GPIO_CLK_ENABLE(); /* IOø⁄ ±÷” πƒ‹ */
     ADC_ADCX_CHY_CLK_ENABLE();      /* ADC ±÷” πƒ‹ */
+		ADC_ADC2_CHY_GPIO_CLK_ENABLE();  //adc2
 		ADC_ADCX_KNOB_GPIO_CLK_ENABLE(); /*enable KNOB*/
 		
-	
+
     sys_gpio_set(ADC_ADCX_CHY_GPIO_PORT, ADC_ADCX_CHY_GPIO_PIN,
                  SYS_GPIO_MODE_AIN, SYS_GPIO_OTYPE_PP, SYS_GPIO_SPEED_MID, SYS_GPIO_PUPD_PU);   /* AD≤…ºØ“˝Ω≈ƒ£ Ω…Ë÷√,ƒ£ƒ‚ ‰»Î */
+
+		sys_gpio_set(ADC_ADCX_CHY_GPIO_PORT, ADC_ADC2_CHY_GPIO_PIN,
+							 SYS_GPIO_MODE_AIN, SYS_GPIO_OTYPE_PP, SYS_GPIO_SPEED_MID, SYS_GPIO_PUPD_PU);   /* AD≤…ºØ“˝Ω≈ƒ£ Ω…Ë÷√pA6 c,ƒ£ƒ‚ ‰»Î */
 	
     sys_gpio_set(ADC_ADCX_CHY_GPIO_PORT, ADC_ADCX_KNOB_GPIO_PIN,
                  SYS_GPIO_MODE_OUT, SYS_GPIO_OTYPE_PP, SYS_GPIO_SPEED_MID, SYS_GPIO_PUPD_PD);   /* KNOB ENBALÎ */

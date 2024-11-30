@@ -35,6 +35,10 @@
 #define ADC_ADCX_CHY_GPIO_PIN               SYS_GPIO_PIN4
 #define ADC_ADCX_CHY_GPIO_CLK_ENABLE()      do{ RCC->APB2ENR |= 1 << 2; }while(0)   /* PA口时钟使能 */
 
+#define ADC_ADC2_CHY_GPIO_PORT              GPIOA
+#define ADC_ADC2_CHY_GPIO_PIN               SYS_GPIO_PIN6
+#define ADC_ADC2_CHY_GPIO_CLK_ENABLE()      do{ RCC->APB2ENR |= 1 << 2; }while(0)   /* PA口时钟使能 */
+
 /*KNOB input */
 #define ADC_ADCX_KNOB_GPIO_PORT							GPIOA
 #define ADC_ADCX_KNOB_GPIO_PIN              SYS_GPIO_PIN5
@@ -43,6 +47,9 @@
 #define ADC_ADCX                            ADC1 
 #define ADC_ADCX_CHY                        4                                      /* 通道Y,  0 <= Y <= 17 */ 
 #define ADC_ADCX_CHY_CLK_ENABLE()           do{ RCC->APB2ENR |= 1 << 9; }while(0)   /* ADC1 时钟使能 */
+
+#define ADC_ADC2_CHY                        6                                      /* 通道Y,  0 <= Y <= 17 */ 
+#define ADC_ADC2_CHY_CLK_ENABLE()           do{ RCC->APB2ENR |= 1 << 9; }while(0)   /* ADC1 时钟使能 */
 
 /* IIC???? */
 #define ADC_ADCX_KNOB_ENBALE(x)         sys_gpio_pin_set(ADC_ADCX_KNOB_GPIO_PORT, ADC_ADCX_KNOB_GPIO_PIN, x)      /* KNOB */

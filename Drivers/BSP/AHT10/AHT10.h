@@ -1,11 +1,11 @@
 #include "./SYSTEM/sys/sys.h"
-#include "./SYSTEM/usart/usart.h"x
+#include "./SYSTEM/usart/usart.h"
 #include "./SYSTEM/delay/delay.h"
 #include "stdint.h"
 
 /*AHT10 SDA */
 #define AHT10_SDA_GPIO_PORT                  GPIOA
-#define AHT10_SDA_GPIO_PIN                   SYS_GPIO_PIN10
+#define AHT10_SDA_GPIO_PIN                   SYS_GPIO_PIN2
 #define AHT10_SDA_GPIO_CLK_ENABLE()           do{ RCC->APB2ENR |= 1 << 2; }while(0)   /* PA口时钟使能 */
 
 /*AHT10 SCL */

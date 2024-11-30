@@ -69,7 +69,7 @@ void gtim_timx_int_init(uint16_t arr, uint16_t psc)
  * @note
  *              通用定时器的时钟来自APB1,当PPRE1 ≥ 2分频的时候
  *              通用定时器的时钟为APB1时钟的2倍, 而APB1为36M, 所以定时器时钟 = 72Mhz
- *              定时器溢出时间计算方法: Tout = ((arr + 1) * (psc + 1)) / Ft us.
+ *              定时器溢出时间计算方法: Tout = ((arr + 1) * (psc + 1)) / Ft unit/S.
  *              Ft=定时器工作频率,单位:Mhz
  *
  * @param       arr: 自动重装值。
