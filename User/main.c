@@ -22,7 +22,7 @@ uint8_t Motor_Out;
 uint8_t Motor_DIR;
 uint8_t Key_Pressed = 0;
 uint8_t c1_ath_counter;
-uint8_t Qian_Wei,Bai_Wei,Shi_Wei,Ge_Wei;	//千位、百位、十位和个位
+uint8_t Qian_Wei,Bai_Wei,Shi_Wei = 0x89,Ge_Wei = 0xf9;	//千位、百位、十位和个位
 uint8_t table[] = 
 {0xc0,0xf9,0xa4,0xb0,0x99,
 0x92,0x82,0xf8,0x80,0x90,
@@ -33,9 +33,12 @@ uint8_t table[] =
 uint16_t HC595_couter;
 uint16_t b = 0,c = 0;
 uint16_t led0pwmval = 0;
+uint16_t adc_DisplayMode_dig;
 
 uint32_t ATH_Couter;
-uint32_t HC595_couter_num = 100;
+uint32_t HC595_couter_num = 25;
+
+float adc_DisplayMode_phy = 0;
 /******************************************************************************************/
 
 void delay(uint64_t mstime)
@@ -57,6 +60,8 @@ void delay(uint64_t mstime)
 
 void Humidifier_inforProcess(void)
 {
+
+	
 		c1_sum_temp = ATH_humidity();   
 		c1_sum = c1_sum + c1_sum_temp;
 		if(c1_ath_counter == 20)
@@ -76,10 +81,11 @@ void Humidifier_inforProcess(void)
 			
 			c = c1_sum_average/10;
 			b = c1_sum_average%10;
+			
 			Shi_Wei = table[c];
-			Ge_Wei = table[b];
-			HC595_Display(Shi_Wei,Ge_Wei);	
+			Ge_Wei = table[b];	
 		}
+		HC595_Display(Shi_Wei,Ge_Wei);
 		HC595_couter ++;
 	 
 }
@@ -97,11 +103,22 @@ int main(void)
 	
 	while(1)
 	{
+		//get display mode
+		adc_DisplayMode_dig = adc_get_result_average(ADC_ADC_DISPLAY_CHY, 10); 
+		adc_DisplayMode_phy = (float)adc_DisplayMode_dig * (3.3 / 4096); 
+		
 		LED0(0);    /* 关闭 LED0 */
 
-		/*Nixie tube display */
-		Humidifier_inforProcess();
-		
+		if(adc_DisplayMode_phy > 3.0)
+		{
+				HC595_Display(0xff,0xff);	
+		}
+		else
+		{		
+			/*Nixie tube display */
+			Humidifier_inforProcess();
+		}
+
 		/*motor ctrl */
 		Motor_Ctrl_Task();
 		

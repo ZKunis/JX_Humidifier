@@ -1,6 +1,6 @@
 Dependencies for Project 'atk_f103', Target 'ADC': (DO NOT MODIFY !)
 F (..\..\Drivers\CMSIS\Device\ST\STM32F1xx\Source\Templates\arm\startup_stm32f103xe.s)(0x64ABA88E)(--cpu Cortex-M3 -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_ADC-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 525" --pd "STM32F10X_MD SETA 1"--list ..\..\output\startup_stm32f103xe.lst --xref -o ..\..\output\startup_stm32f103xe.o --depend ..\..\output\startup_stm32f103xe.d)
-F (..\..\User\main.c)(0x67488293)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Drivers\CMSIS\Device\ST\STM32F1xx\Include -I ..\..\Drivers\CMSIS\Include -I ..\..\Drivers -I ..\..\User -I ..\..\Middlewares-I.\RTE\_ADC-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_MD -DSTM32F103xE-o ..\..\output\main.o --omf_browse ..\..\output\main.crf --depend ..\..\output\main.d)
+F (..\..\User\main.c)(0x674B17C2)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Drivers\CMSIS\Device\ST\STM32F1xx\Include -I ..\..\Drivers\CMSIS\Include -I ..\..\Drivers -I ..\..\User -I ..\..\Middlewares-I.\RTE\_ADC-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_MD -DSTM32F103xE-o ..\..\output\main.o --omf_browse ..\..\output\main.crf --depend ..\..\output\main.d)
 I (..\..\Drivers\./SYSTEM/sys/sys.h)(0x674ACD6C)
 I (..\..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f1xx.h)(0x64ABA88E)
 I (..\..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f103xe.h)(0x64ABA88E)
@@ -21,8 +21,8 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
 I (..\..\Drivers\./BSP/KEY/key.h)(0x66C469E7)
 I (..\..\Drivers\./BSP/AHT10/AHT10.h)(0x674ABDBD)
 I (..\..\Drivers\./BSP/HC595/HC595.h)(0x674AAD7F)
-I (..\..\Drivers\./BSP/Motor/Motor.h)(0x674ADBA7)
-I (..\..\Drivers\./BSP/ADC/adc.h)(0x674AB420)
+I (..\..\Drivers\./BSP/Motor/Motor.h)(0x674B0727)
+I (..\..\Drivers\./BSP/ADC/adc.h)(0x674B0FFB)
 F (..\..\User\GPIOLIKE51.h)(0x4F770561)()
 F (..\..\User\system_stm32f10x.c)(0x4CBC5B58)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Drivers\CMSIS\Device\ST\STM32F1xx\Include -I ..\..\Drivers\CMSIS\Include -I ..\..\Drivers -I ..\..\User -I ..\..\Middlewares-I.\RTE\_ADC-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_MD -DSTM32F103xE-o ..\..\output\system_stm32f10x.o --omf_browse ..\..\output\system_stm32f10x.crf --depend ..\..\output\system_stm32f10x.d)
 I (C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0\Device\Include\stm32f10x.h)(0x672E468E)
@@ -33,7 +33,7 @@ I (..\..\Drivers\CMSIS\Include\cmsis_compiler.h)(0x64ABA88E)
 I (..\..\Drivers\CMSIS\Include\cmsis_armcc.h)(0x64ABA88E)
 I (C:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0\Device\Include\system_stm32f10x.h)(0x61AD795E)
 I (..\..\User\stm32f10x_conf.h)(0x672E4D25)
-F (..\..\Drivers\SYSTEM\delay\delay.c)(0x66C4529C)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Drivers\CMSIS\Device\ST\STM32F1xx\Include -I ..\..\Drivers\CMSIS\Include -I ..\..\Drivers -I ..\..\User -I ..\..\Middlewares-I.\RTE\_ADC-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_MD -DSTM32F103xE-o ..\..\output\delay.o --omf_browse ..\..\output\delay.crf --depend ..\..\output\delay.d)
+F (..\..\Drivers\SYSTEM\delay\delay.c)(0x674AFA37)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Drivers\CMSIS\Device\ST\STM32F1xx\Include -I ..\..\Drivers\CMSIS\Include -I ..\..\Drivers -I ..\..\User -I ..\..\Middlewares-I.\RTE\_ADC-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_MD -DSTM32F103xE-o ..\..\output\delay.o --omf_browse ..\..\output\delay.crf --depend ..\..\output\delay.d)
 I (..\..\Drivers\./SYSTEM/sys/sys.h)(0x674ACD6C)
 I (..\..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f1xx.h)(0x64ABA88E)
 I (..\..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f103xe.h)(0x64ABA88E)
@@ -94,8 +94,8 @@ I (..\..\Drivers\./SYSTEM/usart/usart.h)(0x64ABA88E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
 I (..\..\Drivers\./BSP/LCD/lcd_ex.c)(0x64ABA88E)
 I (..\..\Drivers\./SYSTEM/delay/delay.h)(0x64ABA88E)
-F (..\..\Drivers\BSP\ADC\adc.c)(0x674AB347)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Drivers\CMSIS\Device\ST\STM32F1xx\Include -I ..\..\Drivers\CMSIS\Include -I ..\..\Drivers -I ..\..\User -I ..\..\Middlewares-I.\RTE\_ADC-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_MD -DSTM32F103xE-o ..\..\output\adc.o --omf_browse ..\..\output\adc.crf --depend ..\..\output\adc.d)
-I (..\..\Drivers\./BSP/ADC/adc.h)(0x674AB420)
+F (..\..\Drivers\BSP\ADC\adc.c)(0x674B0F09)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Drivers\CMSIS\Device\ST\STM32F1xx\Include -I ..\..\Drivers\CMSIS\Include -I ..\..\Drivers -I ..\..\User -I ..\..\Middlewares-I.\RTE\_ADC-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_MD -DSTM32F103xE-o ..\..\output\adc.o --omf_browse ..\..\output\adc.crf --depend ..\..\output\adc.d)
+I (..\..\Drivers\./BSP/ADC/adc.h)(0x674B0FFB)
 I (..\..\Drivers\./SYSTEM/sys/sys.h)(0x674ACD6C)
 I (..\..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f1xx.h)(0x64ABA88E)
 I (..\..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f103xe.h)(0x64ABA88E)
@@ -156,8 +156,8 @@ I (..\..\Drivers\CMSIS\Include\cmsis_compiler.h)(0x64ABA88E)
 I (..\..\Drivers\CMSIS\Include\cmsis_armcc.h)(0x64ABA88E)
 I (..\..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x64ABA88E)
 I (..\..\Drivers\./BSP/LED/led.h)(0x672A1CC3)
-F (..\..\Drivers\BSP\Motor\Motor.c)(0x674ADBA3)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Drivers\CMSIS\Device\ST\STM32F1xx\Include -I ..\..\Drivers\CMSIS\Include -I ..\..\Drivers -I ..\..\User -I ..\..\Middlewares-I.\RTE\_ADC-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_MD -DSTM32F103xE-o ..\..\output\motor.o --omf_browse ..\..\output\motor.crf --depend ..\..\output\motor.d)
-I (..\..\Drivers\./BSP/Motor/Motor.h)(0x674ADBA7)
+F (..\..\Drivers\BSP\Motor\Motor.c)(0x674B0DB9)(-c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Drivers\CMSIS\Device\ST\STM32F1xx\Include -I ..\..\Drivers\CMSIS\Include -I ..\..\Drivers -I ..\..\User -I ..\..\Middlewares-I.\RTE\_ADC-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.4.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DSTM32F10X_MD -DSTM32F103xE-o ..\..\output\motor.o --omf_browse ..\..\output\motor.crf --depend ..\..\output\motor.d)
+I (..\..\Drivers\./BSP/Motor/Motor.h)(0x674B0727)
 I (..\..\Drivers\./SYSTEM/sys/sys.h)(0x674ACD6C)
 I (..\..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f1xx.h)(0x64ABA88E)
 I (..\..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f103xe.h)(0x64ABA88E)
@@ -168,7 +168,7 @@ I (..\..\Drivers\CMSIS\Include\cmsis_compiler.h)(0x64ABA88E)
 I (..\..\Drivers\CMSIS\Include\cmsis_armcc.h)(0x64ABA88E)
 I (..\..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x64ABA88E)
 I (..\..\Drivers\./BSP/TIMER/gtim.h)(0x64ABA890)
-I (..\..\Drivers\./BSP/ADC/adc.h)(0x674AB420)
+I (..\..\Drivers\./BSP/ADC/adc.h)(0x674B0FFB)
 I (..\..\Drivers\./BSP/AHT10/AHT10.h)(0x674ABDBD)
 I (..\..\Drivers\./SYSTEM/usart/usart.h)(0x64ABA88E)
 I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)

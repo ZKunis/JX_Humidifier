@@ -4,12 +4,15 @@
 #include "./BSP/AHT10/AHT10.h"
 
 uint8_t HumidityRangeCheck_Result;
+uint8_t Current_mortor_level;
 uint16_t Current_Humidity_Value;
 uint16_t Last_Humidity_Value;
 uint16_t adcx_dig;
 uint16_t adc2_dig;
+uint16_t adcWater_dig;
 float adc_phy = 0;
 float adc2_phy = 0;
+float adcWater_phy = 0;
 
 void Motor_Init(void)
 {
@@ -29,20 +32,18 @@ void Motor_Ctrl_Task(void)
 	
 	switch(get_setting)
 	{
-		case Motor_class0: Motor_OutPut(MOTOR_CLASS0);
-			
-											break;
-		case Motor_class1: Motor_OutPut(MOTOR_CLASS1);
-		
-											break;	
-		case Motor_class2: Motor_OutPut(MOTOR_CLASS2);
-			
-											break;
 		case Motor_class3: Motor_OutPut(MOTOR_CLASS3);
 			
 											break;
-		default: Motor_OutPut(MOTOR_OFF);
+		case Motor_class2: Motor_OutPut(MOTOR_CLASS2);
+		
+											break;	
+		case Motor_class1: Motor_OutPut(MOTOR_CLASS1);
 			
+											break;
+		case Motor_off: Motor_OutPut(MOTOR_OFF);
+				break;
+		
 			break;
 	}		
 		
@@ -51,7 +52,7 @@ void Motor_Ctrl_Task(void)
 uint8_t Motor_HumidityRangeCheck(void)
 {
 	uint8_t ret = 1;
-	uint8_t level = 0;
+	uint16_t level = 0;
 	
 	Current_Humidity_Value = ATH_humidity(); 
 	
@@ -60,100 +61,104 @@ uint8_t Motor_HumidityRangeCheck(void)
 	adc2_phy = (float)adc2_dig * (3.3 / 4096); 
 	
 	//check  Humidity_level setting 
-  if((1.6 > adc_phy)&&(adc_phy > 0.8))
-	{
-		level = Motor_Humidity_level_50;
-	}	
-	else if((2.4 > adc_phy)&&(adc_phy > 1.6))
+
+  if(0.85 >= adc2_phy)
 	{
 		level = Motor_Humidity_level_60;
-	}
-	else if((3.1 > adc_phy)&&(adc_phy > 2.4 ))
+	}	
+	else if((2.2 >= adc2_phy)&&(adc2_phy > 0.85))
 	{
 		level = Motor_Humidity_level_70;
-	}	
-	else if(adc_phy > 3.1)
+	}
+	else if(adc2_phy > 2.2)
 	{
 		level = Motor_Humidity_level_80;
 	}
-	
 	//current humidiy < setting humidity level ,output motor
-	if((Current_Humidity_Value < level) && (HumidityRangeCheck_Result == 0))
+	if((Current_Humidity_Value < level)&&(HumidityRangeCheck_Result == 1))
 	{
+		 HumidityRangeCheck_Result = 0;
 		 ret = 1;  //enable motor output;
 	}	
-	
-	//if current humidiy == setting humidity level 
-	if(Current_Humidity_Value ==  level)
+	else if(Current_Humidity_Value >=  level)  //if current humidiy == setting humidity level 
 	{
-			HumidityRangeCheck_Result = 1;  //stop motor output;
+		if(Current_Humidity_Value < (level-50))
+		{
+			HumidityRangeCheck_Result = 1;
+			ret = 1;  //enable motor output;
+			return ret;
+		}
 		
-			Last_Humidity_Value = Current_Humidity_Value;
-		
-			ret = 0;  //stop motor output;
-	}
-	
-
-	if( (HumidityRangeCheck_Result == 1) && ((Last_Humidity_Value - Current_Humidity_Value)==5) )
-	{
-		HumidityRangeCheck_Result = 0 ;
+		ret = 0;  //stop motor output;
 	}
 	
 	
 	return ret;
 }	
 
-uint8_t level_debug;
+uint8_t Motor_WaterLevelCheck(void)
+{
+	uint8_t ret = 0;
+	//get water level  setting voltage
+	adcWater_dig = adc_get_result_average(ADC_ADC_WATER_CHY, 10);    
+	adcWater_phy = (float)adcWater_dig * (3.3 / 4096); 
+	
+	if(adcWater_phy >= 3)
+	{
+		ret = 1;//enable motor output;
+	}
+	else
+	{
+		ret = 0;//stop motor output;
+	}
+	
+	return ret;
+}
+
+
 uint8_t Motor_LevelCheck(void)
 {
 	uint8_t level = 0;
 	uint8_t motor_enable;
+	uint8_t water_level;
 	
 	//get motor speed  setting voltage
 	adcx_dig = adc_get_result_average(ADC_ADCX_CHY, 10);    
 	adc_phy = (float)adcx_dig * (3.3 / 4096); 
 	
 	motor_enable = Motor_HumidityRangeCheck();
+	water_level = Motor_WaterLevelCheck();
 
-	if(1 == motor_enable)
+	if((1 == motor_enable)&&(1 == water_level))
 	{
 			//check  motor_level setting 
-		if(adc_phy < 0.2)
-		{
-			//level = Motor_off;
-			level = Motor_class0;
-		}
-		else if((1.6 > adc_phy)&&(adc_phy > 0.8))
-		{
-			level = Motor_class0;
-		}	
-		else if((2.4> adc_phy)&&(adc_phy > 1.6))
-		{
-			level = Motor_class1;
-		}
-		else if((3.1 > adc_phy)&&(adc_phy > 2.4 ))
-		{
-			level = Motor_class2;
-		}	
-		else if(adc_phy > 3.1)
+    if((0.85 >= adc_phy))
 		{
 			level = Motor_class3;
+		}	
+		else if((2.2>= adc_phy)&&(adc_phy > 0.85))
+		{
+			level = Motor_class2;
 		}
+		else if(adc_phy > 2.2)
+		{
+			level = Motor_class1;
+		}			
 	}	
 	else
 	{
 		  level = Motor_off;
 	}	
-	level_debug = level;
+	
 	return level;
 }	
 
-uint32_t output_debug;
+
 void Motor_OutPut(uint32_t output)
 {		
 		//PA0
 		GTIM_TIMX_PWM_CHY_CCRX =output ;
-		output_debug = output;
+		
 }
 
 

@@ -36,20 +36,29 @@
  */
 void adc_init(void)
 {
-    ADC_ADCX_CHY_GPIO_CLK_ENABLE(); /* IO¿ÚÊ±ÖÓÊ¹ÄÜ */
+    ADC_ADCX_CHY_GPIO_CLK_ENABLE(); /* IO¿ÚÊ±ÖÓÊ¹ÄÜ */ //PA4
     ADC_ADCX_CHY_CLK_ENABLE();      /* ADCÊ±ÖÓÊ¹ÄÜ */
-		ADC_ADC2_CHY_GPIO_CLK_ENABLE();  //adc2
+		ADC_ADC2_CHY_GPIO_CLK_ENABLE();  //PA6
+		ADC_ADC_WATER_CHY_GPIO_CLK_ENABLE(); // PA7
+		ADC_ADC_DISPLAY_CHY_GPIO_CLK_ENABLE(); // PA8
 		ADC_ADCX_KNOB_GPIO_CLK_ENABLE(); /*enable KNOB*/
 		
 
     sys_gpio_set(ADC_ADCX_CHY_GPIO_PORT, ADC_ADCX_CHY_GPIO_PIN,
-                 SYS_GPIO_MODE_AIN, SYS_GPIO_OTYPE_PP, SYS_GPIO_SPEED_MID, SYS_GPIO_PUPD_PU);   /* AD²É¼¯Òý½ÅÄ£Ê½ÉèÖÃ,Ä£ÄâÊäÈë */
+                 SYS_GPIO_MODE_AIN, SYS_GPIO_OTYPE_PP, SYS_GPIO_SPEED_MID, SYS_GPIO_PUPD_PU);  /* AD²É¼¯Òý½ÅÄ£Ê½ÉèÖÃ,Ä£ÄâÊäÈë */ //PA4
 
 		sys_gpio_set(ADC_ADCX_CHY_GPIO_PORT, ADC_ADC2_CHY_GPIO_PIN,
 							 SYS_GPIO_MODE_AIN, SYS_GPIO_OTYPE_PP, SYS_GPIO_SPEED_MID, SYS_GPIO_PUPD_PU);   /* AD²É¼¯Òý½ÅÄ£Ê½ÉèÖÃpA6 c,Ä£ÄâÊäÈë */
+
+		sys_gpio_set(ADC_ADCX_CHY_GPIO_PORT, ADC_ADC_WATER_CHY_GPIO_PIN,
+							 SYS_GPIO_MODE_AIN, SYS_GPIO_OTYPE_PP, SYS_GPIO_SPEED_MID, SYS_GPIO_PUPD_PU);   /* AD²É¼¯Òý½ÅÄ£Ê½ÉèÖÃpA7 c,Ä£ÄâÊäÈë */
+
+		sys_gpio_set(ADC_ADCX_CHY_GPIO_PORT, ADC_ADC_DISPLAY_CHY_GPIO_PIN,
+							 SYS_GPIO_MODE_AIN, SYS_GPIO_OTYPE_PP, SYS_GPIO_SPEED_MID, SYS_GPIO_PUPD_PU);   /* AD²É¼¯Òý½ÅÄ£Ê½ÉèÖÃpA8 c,Ä£ÄâÊäÈë */
 	
     sys_gpio_set(ADC_ADCX_CHY_GPIO_PORT, ADC_ADCX_KNOB_GPIO_PIN,
                  SYS_GPIO_MODE_OUT, SYS_GPIO_OTYPE_PP, SYS_GPIO_SPEED_MID, SYS_GPIO_PUPD_PD);   /* KNOB ENBALë */
+
 		ADC_ADCX_KNOB_ENBALE(1);
 
     RCC->APB2RSTR |= 3 << 9;        /* ADC1 & ADC2 ¸´Î» */
